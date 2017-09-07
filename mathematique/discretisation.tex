@@ -1,0 +1,130 @@
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Discrétisation}
+%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Discrétisation des dérivées}
+%
+\subsubsection{Dérivé symétrisée}
+La symétrisation de la dérivé permet de retrouver l'algorithme de Verlet. Une tel symétrisation permet d'observer la conservation de l'énergie lorsque l'on supprime les frottements visqueux.
+\[
+v=\frac{x(t+\dt)-x(t-\dt)}{2\dt}
+\]
+\[
+a=\frac{x(t+2\dt)-x(t)-x(t)+x(t-2\dt)}{4\dt^2}
+\]
+%
+\subsubsection{Changement de variable}
+Simplifiant l'expression de l'accélération, le changement de variable dt' = 2 dt donne une expression disymétrique de la vitesse, cette dernière est utilisée pour l'évaluation des forces de viscosité.
+\[
+a=\frac{x(t+\dt)-2x(t)+x(t-\dt)}{\dt^2}
+\]
+\[
+v=\frac{x(t)-x(t-\dt)}{\dt}
+\]
+
+\subsection{Discrétisation de la relation fondamentale de la dynamique}
+
+Somme des forces = m a
+
+Considérant que la variable x est un angle en radian, l'analyse dimentionnelle de la relation fondamentale de la dynamique donne alors
+
+\[
+-\dt^2mg\sin{x(t)}  -  \dt^2 k.l.D.x(t)  -  dt.a.l ( x(t) - x(t-dt) )  =  m.l ( x(t+dt) - 2x(t) + x(t-dt) )
+\]
+\[
+\mathrm{
+ T^2MLT^{-2}         T^2MT^{-2}L        TMT^{-1}L       =       ML
+}
+\]
+
+soit
+
+\[
+- \dt^2\frac{g}{l}\sin{x(t)}-\dt^2\frac{kD}{m} x(t) - \dt\frac{a}{m}(x(t)-x(t-\dt))=(x(t+\dt)-2x(t)+x(t-\dt))
+\]
+\subsubsection{Variables réduites}
+
+Les variables réduites sont sans dimension . Elles prennent en compte la discrétisation du temps. Le signe prend en compte le caractère « de rappel » des forces.
+
+\[
+\texttt{alpha} =  - \frac{a}{m}\dt
+\]
+\[
+\texttt{gamma} =  - \frac{g}{l}\dt^2
+\]
+\[
+\texttt{kapa} =  - \frac{k}{m}\dt^2
+\]
+
+Définition
+
+définition simplifié des variables numériques
+
+\[
+force[i] = gamma.sinx + kapa.Dx + alpha.dx
+\]
+
+définition des variables numériques de SiCP 1.0
+
+forceTotale = gamma sinx + kapaprécédent  Dxprécédent +  kapa Dxsuivant + alpha dx
+
+Simulation Numérique
+
+
+\[
+	( x(t+\dt) - 2x(t) + x(t-\dt) ) = force[i]
+\]
+
+\[
+	soit	x(t+\dt) = 2 x(t) - x(t-\dt) + force[i]
+\]
+
+
+Période égale à une seconde
+		Période = 2pi sqrt(l/g) = 1			$g/l . x = - d2x / \dt^2 $
+		g/l=4pi2 = 39,478				x = cos( t √ g/l )
+
+				longueur = 0,25
+
+Empiriquement, un affichage graphique par 30 ms, est obtenue avec delay(25)
+ (Ce 25 n'a rien à voir avec la longueur précédente... )
+
+		$\dt * duree = delay
+		\dt * 100 = 0,03 		\dt = 0,0003$
+
+
+\subsubsection{Limite infinie}
+
+	pendule de  « précédent »  à  « - nombre * 5 / 6 » ,
+		dissipation de 10  à 1 
+
+	pendule précédents
+		dissipation = 0,0
+
+
+
+\subsubsection{Interaction dans SiG (Simulateur de gravitation)}
+
+	$a=d2f/m\dt^2.=force[i]$
+
+$x(t+\dt)=2.x(t)-x(t-\dt)+force$
+
+nouveau[i]=2.actuel[i]-ancien[i]+force[i]
+
+force[i]=champ[i].q[i]/m[i]
+
+champ[j]=Sq[i].(r[i]-r[j])/|r[i]-r[j]|3.
+
+ch[j]=Sq[i].(position-corps)...
+
+Si les charges sont opposées,
+
+	champ[j]=Sq[i].((r[i]-r[j])/|r[i]-r[j]|3.-(r[i]-r[j])/|r[i]-r[j]|5.
+
+%\subsection{L'équation de Schrödinger}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
