@@ -16,14 +16,15 @@ $\frac{k}{m}$ & $\frac{vitesse^2}{longueur^2}$ & T$^{-2}$ & $\frac{k}{m}$ = $\fr
 $\frac{g}{l}$& pulsation$^2$ & T$^{-2}$ & $\frac{g}{l}$ = $\omega _0 ^2$ \\
 \end{tabular}
 \end{center}
-%
 
 La relation fondamentale de la dynamique, donne, en prennant en compte les frottements visqueux :
-%
 \[
 m l\ \frac{d^2 \theta _n}{\dt^2} =  - m g \sin{\theta _n}  -  k l \Delta \theta _n(t)  -  \beta\ \frac{d \theta _n}{\dt}
 \]
-%
+soit
+\[
+\frac{d^2 \theta _n}{\dt^2} =  - \frac{m}{l} \sin{\theta _n}  -  \frac{k}{m} \Delta \theta _n(t)  - \frac{\beta}{ml} \beta\ \frac{d \theta _n}{\dt}
+\]
 \begin{center}
 \begin{tabular}{cccccc}
 %\multicolumn{4}{|c|}{Contrôles} & \multicolumn{4}{c}{Information} & \multicolumn{4}{|c|}{Contrôles}\\
@@ -36,13 +37,12 @@ avec & & $\theta _n$ & angle & radian &  \\
 \end{tabular}
 \end{center}
 %
-\subsubsection{Expressions de l'énergie}
+\subsubsection{Expressions des forces et des énergies associées}
 
 La force de rappel, s'exerçant sur la masse m, dû au fil de torsion entre les pendules est :
 \[
 f_{torsion} = -  k l \Delta \theta _n = -  k l\ (2\theta _n-\theta _{n-1}-\theta _{n+1})
 \]
-
 L'énergie potentielle entre les pendules n et n-1 est :
 \[
 E_{couplage} = \frac{1}{2}\ k l^2 (\theta _n-\theta _{n-1})^2
@@ -52,7 +52,6 @@ La force de rappel dû à la gravitation est :
 \[
 f_{gravitation} = - m g \sin{\theta _n}
 \]
-
 L'énergie potentielle de pesanteur de la masse m est :
 \[
 E_{pp} = m g l (1 - \cos{\theta _n})
@@ -62,7 +61,6 @@ La linéarisation de cette dernière force aboutit à une force de rappel harmon
 \[
 f_{ressort} = - m g \theta _n
 \]
-
 L'énergie potentielle correspondante est alors:
 \[
 E_{pp} = \frac{1}{2}\ m g l \theta _n^2

@@ -37,61 +37,62 @@ soit
 \[
 x(t+\dt) - 2x(t) + x(t-\dt) = - \frac{g\dt^2}{l} \sin{x(t)}  -  \frac{k\dt^2}{m} \Delta x(t)  -  \frac{\beta \dt}{ml}\ (x(t) - x(t-\dt))
 \]
-soit
-avec 
-\begin{center}
-\begin{tabular}{cccc}
-%\multicolumn{4}{|c|}{Contrôles} & \multicolumn{4}{c}{Information} & \multicolumn{4}{|c|}{Contrôles}\\
-l & longueur & L &  \\
-$\beta$ & frottement & ML$^{2}$T$^{-1}$ &  \\
- &  &  &  \\
-\end{tabular}
-\end{center}
-%
-La force de rappel dû au fil de torsion entre les pendules est :
-%
+ou
 \[
-f_{torsion} = -  k \Delta x(t) = -  k (2x[i]-x[i-1]-x[i+1])
-\]
-%
-avec 
-\begin{center}
-\begin{tabular}{cccc}
-%\multicolumn{4}{|c|}{Contrôles} & \multicolumn{4}{c}{Information} & \multicolumn{4}{|c|}{Contrôles}\\
-x & angle & radian &  \\
-k & torsion & MLT$^{-2}$ &  \\
-\end{tabular}
-\end{center}
-%
-La force de rappel dû à la gravitation est :
-%
-\[
-f_{gravitation} = - m g \sin{x(t)}
-\]
-%
-avec 
-\begin{center}
-\begin{tabular}{cccc}
-%\multicolumn{4}{|c|}{Contrôles} & \multicolumn{4}{c}{Information} & \multicolumn{4}{|c|}{Contrôles}\\
-m & masse & M &  \\
-g & pesanteur & LT$^{-2}$ &  \\
-\end{tabular}
-\end{center}
-%
-soit
-\[
-- \dt^2\frac{g}{l}\sin{x(t)}-\dt^2\frac{k}{m} \Delta x(t) - \dt\frac{a}{m}(x(t)-x(t-\dt))=(x(t+\dt)-2x(t)+x(t-\dt))
+x(t+\dt) = 2x(t) - x(t-\dt) - \dt^2\frac{g}{l}\sin{x(t)}-\dt^2\frac{k}{m} \Delta x(t) - \dt\frac{\beta}{ml}(x(t)-x(t-\dt))
 \]
 avec
 \[
 \Delta x(t) = (2x[i]-x[i-1]-x[i+1])
 \]
-\subsection{Variables réduites}
 
-Les variables réduites sont sans dimension . Elles prennent en compte la discrétisation du temps. Le signe prend en compte le caractère « de rappel » des forces.
-
+La force de rappel dû au fil de torsion entre les pendules est :
+%
 \[
-\texttt{alpha} =  - \frac{a}{m}\dt
+f_{torsion} = -  k l \Delta x(t) = -  k l (2x[i]-x[i-1]-x[i+1])
+\]
+%
+L'énergie potentielle entre les pendules n et n-1 est :
+\[
+E_{couplage} = \frac{1}{2}\ k l^2 (x[i]-x[i-1])^2
+\]
+
+La force de rappel dû à la gravitation est :
+%
+\[
+f_{gravitation} = - m g \sin{x(t)}
+\]
+L'énergie potentielle de pesanteur de la masse m est :
+\[
+E_{pp} = m g l (1 - \cos{x(t)})
+\]
+
+La linéarisation de cette dernière force aboutit à une force de rappel harmonique :
+\[
+f_{ressort} = - m g x(t)
+\]
+L'énergie potentielle correspondante est alors:
+\[
+E_{pp} = \frac{1}{2}\ m g l x(t)^2
+\]
+
+Enfin, l'énergie cinétique découle du travail de 
+\[
+m l\ \frac{d^2 x(t)}{\dt^2}
+\]
+%
+Et vaut
+\[
+E_{c} = \frac{1}{2}\ m l (\frac{d x(t)}{\dt})^2 = \frac{m l}{2\dt ^2}\  (x(t)-(x(t-\dt))
+\]
+
+%
+\subsection{Variables réduites}
+%
+Les variables réduites sont sans dimensions. Elles prennent en compte la discrétisation du temps. Le signe prend en compte le caractère « de rappel » des forces.
+%
+\[
+\texttt{alpha} =  - \frac{\beta}{ml}\dt
 \]
 \[
 \texttt{gamma} =  - \frac{g}{l}\dt^2
@@ -99,19 +100,11 @@ Les variables réduites sont sans dimension . Elles prennent en compte la discr�
 \[
 \texttt{kapa} =  - \frac{k}{m}\dt^2
 \]
-
-Définition des variables numériques
-
+On a alors
 \[
 	\texttt{force}[i] = \texttt{gamma}.sinx + \texttt{kapa}. \Delta x + \texttt{alpha}.(x(t)-x(t-\dt))
 \]
-
-Simulation Numérique
-
-\[
-	( x(t+\dt) - 2x(t) + x(t-\dt) ) = \texttt{force}[i]
-\]
-soit
+et
 \[
 	x(t+\dt) = 2 x(t) - x(t-\dt) + \texttt{force}[i]
 \]
