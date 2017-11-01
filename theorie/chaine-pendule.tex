@@ -2,9 +2,96 @@
 \section{La chaine de pendule}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{La chaine de pendule}
-La chaîne de pendule est constituée d'une série de pendules pesants. Chaque pendule étant couplé avec ses deux plus proches voisins à l'aide d'un fil de torsion.
+\label{chaineDePendule}
+\subsubsection{L'équation de la chaine de pendule}
+La chaîne de pendule est constituée d'une série de pendules pesants. Chaque pendule étant couplé avec ses deux plus proches voisins à l'aide d'un fil de torsion.\cite{sine-gordon}\cite{chaine-pendule}
 \[
 \frac{\mathrm d^2\theta _n}{\mathrm d t^2} - c^2 \frac{\theta _{n+1} + \theta _{n-1} - 2 \theta _n}{\mathrm{a} ^2} + \omega _0 ^2 \sin \theta _n = 0
 \]
-\subsection{La corde vibrante}
+%
+\begin{center}
+\begin{tabular}{cccc}
+%\multicolumn{4}{|c|}{Contrôles} & \multicolumn{4}{c}{Information} & \multicolumn{4}{|c|}{Contrôles}\\
+$\frac{k}{m}$ & $\frac{vitesse^2}{longueur^2}$ & T$^{-2}$ & $\frac{k}{m}$ = $\frac{c^2}{a^2}$ \\
+$\frac{g}{l}$& pulsation$^2$ & T$^{-2}$ & $\frac{g}{l}$ = $\omega _0 ^2$ \\
+\end{tabular}
+\end{center}
+%
 
+La relation fondamentale de la dynamique, donne, en prennant en compte les frottements visqueux :
+%
+\[
+m l\ \frac{d^2 \theta _n}{\dt^2} =  - m g \sin{\theta _n}  -  k l \Delta \theta _n(t)  -  \beta\ \frac{d \theta _n}{\dt}
+\]
+%
+\begin{center}
+\begin{tabular}{cccccc}
+%\multicolumn{4}{|c|}{Contrôles} & \multicolumn{4}{c}{Information} & \multicolumn{4}{|c|}{Contrôles}\\
+avec & & $\theta _n$ & angle & radian &  \\
+ & & m & masse & M &  \\
+ & & g & pesanteur & LT$^{-2}$ &  \\
+ & & k & torsion & MT$^{-2}$ &  \\
+ & & l & longueur & L &  \\
+ & & $\beta$ & frottement & ML$^{2}$T$^{-1}$ &  \\
+\end{tabular}
+\end{center}
+%
+\subsubsection{Expressions de l'énergie}
+
+La force de rappel, s'exerçant sur la masse m, dû au fil de torsion entre les pendules est :
+\[
+f_{torsion} = -  k l \Delta \theta _n = -  k l\ (2\theta _n-\theta _{n-1}-\theta _{n+1})
+\]
+
+L'énergie potentielle entre les pendules n et n-1 est :
+\[
+E_{couplage} = \frac{1}{2}\ k l^2 (\theta _n-\theta _{n-1})^2
+\]
+
+La force de rappel dû à la gravitation est :
+\[
+f_{gravitation} = - m g \sin{\theta _n}
+\]
+
+L'énergie potentielle de pesanteur de la masse m est :
+\[
+E_{pp} = m g l (1 - \cos{\theta _n})
+\]
+
+La linéarisation de cette dernière force aboutit à une force de rappel harmonique :
+\[
+f_{ressort} = - m g \theta _n
+\]
+
+L'énergie potentielle correspondante est alors:
+\[
+E_{pp} = \frac{1}{2}\ m g l \theta _n^2
+\]
+
+Enfin, l'énergie cinétique découle du travail de 
+\[
+m l\ \frac{d^2 \theta _n}{\dt^2}
+\]
+%
+Et vaut
+\[
+E_{c} = \frac{1}{2}\ m l (\frac{d \theta _n}{\dt})^2
+\]
+
+
+La force de frottement visqueux est :
+%
+\[
+f_{frottement} = -  \beta\ \frac{\theta _n(t) - \theta _n(t-\dt)}{\dt}
+\]
+%
+La présence de cette force implique une dissipation de l'énergie. En l'absence de cette force, on doit observer une conservation de l'énergie totale.
+
+À ces forces il faut ajouter le courant josephson, correspondant à une constante additive dans la relation fondamentale de la dynamique ainsi que la force s'xerçant sur le premier pendule lors de l'excitation de la chaîne.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%La relation fondamentale de la dynamique donne :
+%\[- m g \sin{\theta _n(t)}  -  k l \Delta \theta _n(t)  -  \beta\ \frac{\theta _n(t) - \theta _n(t-\dt)}{\dt} =  m l\ \frac{\theta _n(t+\dt) - 2\theta _n(t) + \theta _n(t-\dt)}{\dt^2}\]
+%soit\[\frac{\theta _n(t+\dt) - 2\theta _n(t) + \theta _n(t-\dt)}{\dt^2} = - \frac{g}{l} \sin{\theta _n(t)}  -  \frac{k}{m} \Delta \theta _n(t)  -  \frac{\beta}{ml}\ \frac{\theta _n(t) - \theta _n(t-\dt)}{\dt}\]
+%D'ou finallement\[\theta _n(t+\dt) = 2\theta _n(t) - \theta _n(t-\dt) + \delta force_n\]
+%avec \[\delta force_n = - \dt^2 \frac{g}{l} \sin{\theta _n(t)} - \dt^2 \frac{k}{m} \Delta \theta _n(t) - \dt \frac{\beta}{ml} (\theta _n(t) - \theta _n(t-\dt))\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

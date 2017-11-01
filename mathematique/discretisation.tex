@@ -2,48 +2,91 @@
 %%%%%%%%%%%%%%%%%%%%%
 \section{Discrétisation}
 %%%%%%%%%%%%%%%%%%%%%
-
+%
+La discrétisation de l'équation du mouvement se fait à l'aide de l'algorithme de Verlet. Cet algorithme consiste à symétriser la dérivée par rapport au temps puis d'obtenir une expression de $x(t+\dt)$ en fonction de $x(t)$ et $x(t-\dt)$. Cette expression permet de simuler de proche en proche le comportement du système physique. La solution discrète se rapproche de la solution analytique si la valeur de dt est convenablement choisie. En dehors d'un certain encadrement de dt, la solution discrète s'éloigne de la solution analytique.
+%
 \subsection{Discrétisation des dérivées}
 %
 \subsubsection{Dérivé symétrisée}
-La symétrisation de la dérivé permet de retrouver l'algorithme de Verlet. Une tel symétrisation permet d'observer la conservation de l'énergie lorsque l'on supprime les frottements visqueux.
+Par définition, la dérivé symétrique est :
 \[
-v=\frac{x(t+\dt)-x(t-\dt)}{2\dt}
+\frac{dx}{\dt}=\frac{x(t+\dt)-x(t-\dt)}{2\dt}
 \]
+On en déduit l'expression suivante de la dérivée seconde :
 \[
-a=\frac{x(t+2\dt)-x(t)-x(t)+x(t-2\dt)}{4\dt^2}
+\frac{d^2x}{\dt^2}=\frac{x(t+2\dt)-x(t)-x(t)+x(t-2\dt)}{4\dt^2}
+\]
+Le changement de variable dt' = 2 dt simplifie cette expression :
+\[
+\frac{d^2x}{\dt^2}=\frac{x(t+\dt)-2x(t)+x(t-\dt)}{\dt^2}
+\]
+Une expression disymétrique de la vitesse peut être utilisée pour l'évaluation des forces de viscosité ainsi que pour le calcul de l'énergie cinétique avant le calcul de la nouvelle valeur de $x(t+\dt)$.
+\[
+\frac{dx}{\dt}=\frac{x(t+\dt)-x(t)}{\dt}
+\]
+{\footnotesize Après l'incrémentation, } $\frac{dx}{\dt}=\frac{x(t)-x(t-\dt)}{\dt}$
+%
+\subsection{Discrétisation de la relation fondamentale de la dynamique}
+%
+L'équation de la chaîne de pendules couplés (\ref{chaineDePendule}) donne ici :
+%
+\[
+\frac{x(t+\dt) - 2x(t) + x(t-\dt)}{\dt^2} = - \frac{g}{l} \sin{x(t)}  -  \frac{k}{m} \Delta x(t)  -  \frac{\beta}{ml}\ \frac{x(t) - x(t-\dt)}{\dt}
+\]
+soit
+\[
+x(t+\dt) - 2x(t) + x(t-\dt) = - \frac{g\dt^2}{l} \sin{x(t)}  -  \frac{k\dt^2}{m} \Delta x(t)  -  \frac{\beta \dt}{ml}\ (x(t) - x(t-\dt))
+\]
+soit
+avec 
+\begin{center}
+\begin{tabular}{cccc}
+%\multicolumn{4}{|c|}{Contrôles} & \multicolumn{4}{c}{Information} & \multicolumn{4}{|c|}{Contrôles}\\
+l & longueur & L &  \\
+$\beta$ & frottement & ML$^{2}$T$^{-1}$ &  \\
+ &  &  &  \\
+\end{tabular}
+\end{center}
+%
+La force de rappel dû au fil de torsion entre les pendules est :
+%
+\[
+f_{torsion} = -  k \Delta x(t) = -  k (2x[i]-x[i-1]-x[i+1])
 \]
 %
-\subsubsection{Changement de variable}
-Simplifiant l'expression de l'accélération, le changement de variable dt' = 2 dt donne une expression disymétrique de la vitesse, cette dernière est utilisée pour l'évaluation des forces de viscosité.
+avec 
+\begin{center}
+\begin{tabular}{cccc}
+%\multicolumn{4}{|c|}{Contrôles} & \multicolumn{4}{c}{Information} & \multicolumn{4}{|c|}{Contrôles}\\
+x & angle & radian &  \\
+k & torsion & MLT$^{-2}$ &  \\
+\end{tabular}
+\end{center}
+%
+La force de rappel dû à la gravitation est :
+%
 \[
-a=\frac{x(t+\dt)-2x(t)+x(t-\dt)}{\dt^2}
+f_{gravitation} = - m g \sin{x(t)}
 \]
-\[
-v=\frac{x(t)-x(t-\dt)}{\dt}
-\]
-
-\subsection{Discrétisation de la relation fondamentale de la dynamique}
-
-Somme des forces = m a
-
-Considérant que la variable x est un angle en radian, l'analyse dimentionnelle de la relation fondamentale de la dynamique donne alors
-
-\[
--\dt^2mg\sin{x(t)}  -  \dt^2 k.l.D.x(t)  -  dt.a.l ( x(t) - x(t-dt) )  =  m.l ( x(t+dt) - 2x(t) + x(t-dt) )
-\]
-\[
-\mathrm{
- T^2MLT^{-2}         T^2MT^{-2}L        TMT^{-1}L       =       ML
-}
-\]
-
+%
+avec 
+\begin{center}
+\begin{tabular}{cccc}
+%\multicolumn{4}{|c|}{Contrôles} & \multicolumn{4}{c}{Information} & \multicolumn{4}{|c|}{Contrôles}\\
+m & masse & M &  \\
+g & pesanteur & LT$^{-2}$ &  \\
+\end{tabular}
+\end{center}
+%
 soit
-
 \[
-- \dt^2\frac{g}{l}\sin{x(t)}-\dt^2\frac{kD}{m} x(t) - \dt\frac{a}{m}(x(t)-x(t-\dt))=(x(t+\dt)-2x(t)+x(t-\dt))
+- \dt^2\frac{g}{l}\sin{x(t)}-\dt^2\frac{k}{m} \Delta x(t) - \dt\frac{a}{m}(x(t)-x(t-\dt))=(x(t+\dt)-2x(t)+x(t-\dt))
 \]
-\subsubsection{Variables réduites}
+avec
+\[
+\Delta x(t) = (2x[i]-x[i-1]-x[i+1])
+\]
+\subsection{Variables réduites}
 
 Les variables réduites sont sans dimension . Elles prennent en compte la discrétisation du temps. Le signe prend en compte le caractère « de rappel » des forces.
 
@@ -57,72 +100,22 @@ Les variables réduites sont sans dimension . Elles prennent en compte la discr�
 \texttt{kapa} =  - \frac{k}{m}\dt^2
 \]
 
-Définition
-
-définition simplifié des variables numériques
+Définition des variables numériques
 
 \[
-force[i] = gamma.sinx + kapa.Dx + alpha.dx
+	\texttt{force}[i] = \texttt{gamma}.sinx + \texttt{kapa}. \Delta x + \texttt{alpha}.(x(t)-x(t-\dt))
 \]
-
-définition des variables numériques de SiCP 1.0
-
-forceTotale = gamma sinx + kapaprécédent  Dxprécédent +  kapa Dxsuivant + alpha dx
 
 Simulation Numérique
 
-
 \[
-	( x(t+\dt) - 2x(t) + x(t-\dt) ) = force[i]
+	( x(t+\dt) - 2x(t) + x(t-\dt) ) = \texttt{force}[i]
+\]
+soit
+\[
+	x(t+\dt) = 2 x(t) - x(t-\dt) + \texttt{force}[i]
 \]
 
-\[
-	soit	x(t+\dt) = 2 x(t) - x(t-\dt) + force[i]
-\]
-
-
-Période égale à une seconde
-		Période = 2pi sqrt(l/g) = 1			$g/l . x = - d2x / \dt^2 $
-		g/l=4pi2 = 39,478				x = cos( t √ g/l )
-
-				longueur = 0,25
-
-Empiriquement, un affichage graphique par 30 ms, est obtenue avec delay(25)
- (Ce 25 n'a rien à voir avec la longueur précédente... )
-
-		$\dt * duree = delay
-		\dt * 100 = 0,03 		\dt = 0,0003$
-
-
-\subsubsection{Limite infinie}
-
-	pendule de  « précédent »  à  « - nombre * 5 / 6 » ,
-		dissipation de 10  à 1 
-
-	pendule précédents
-		dissipation = 0,0
-
-
-
-\subsubsection{Interaction dans SiG (Simulateur de gravitation)}
-
-	$a=d2f/m\dt^2.=force[i]$
-
-$x(t+\dt)=2.x(t)-x(t-\dt)+force$
-
-nouveau[i]=2.actuel[i]-ancien[i]+force[i]
-
-force[i]=champ[i].q[i]/m[i]
-
-champ[j]=Sq[i].(r[i]-r[j])/|r[i]-r[j]|3.
-
-ch[j]=Sq[i].(position-corps)...
-
-Si les charges sont opposées,
-
-	champ[j]=Sq[i].((r[i]-r[j])/|r[i]-r[j]|3.-(r[i]-r[j])/|r[i]-r[j]|5.
-
-%\subsection{L'équation de Schrödinger}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
