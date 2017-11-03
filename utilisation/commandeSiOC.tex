@@ -20,10 +20,10 @@ Pour démarrer SiCP avec un fond sombre, un nombre de pendules égale à 50 et t
 option & valeur & clavier & commande \\
 %\hline
 {\texttt fond} & (fond>0 \& fond<255) &  & Couleur du fond \\
-{\texttt soliton} & (soliton > -99 \& soliton < 99) & {\sf Y},{\sf H} & déphasage entre les extrémitées *\\
+{\texttt soliton} & (soliton > -99 \& soliton < 99) & {\sf y},{\sf h} & déphasage entre les extrémitées *\\
 {\texttt dt} & (dt > 0.0 \& dt < DT\_MAX) &  & discrétisation du temps \\
-{\texttt frequence} & () & {\sf P}, {\sf M} & fréquence du générateur \\
-{\texttt dissipation} & () & {\sf E}, {\sf D} & dissipation \\
+{\texttt frequence} & () & {\sf p}, {\sf m} & fréquence du générateur \\
+{\texttt dissipation} & () & {\sf e}, {\sf d} & dissipation \\
 {\texttt equation} & (equation > 0 \& equation < 5) & {\sf F1}, {\sf F2}, {\sf F3}, {\sf F4} & choix de l'équation \\
 {\texttt pause} & (pause > 5 || pause < 555) &  & temps de pause en ms \\
 {\texttt duree} & () & {\sf F11}, {\sf F12} & Nombre d'évolution du système entre les affichages \\
@@ -80,22 +80,13 @@ Support (SiCP) & -Sim & -Sim & +Sim & +Sim & mode\\
 \end{tabular}
 \end{center}
 %
-%
-\subsection{Graphisme SiCP}
-Cliquer et déplacer le pointeur de la souris permet de déplacer le point de vue de l'observateur. La touche {\sf F8} permet de supprimer/ajouter le support dans SiCP.
-%
-\subsection{Sauvegarde et initialisation dans SiCF}
-%
-Cette fonctionnalité nécessite la présence du répertoire donnee/enregistrement dans le répertoire de l'exécutable.
-La touche majuscule permet d'accéder aux fonctions d'enregistrement et de réinitialisation des positions des pendules. Lorsque la touche majuscule est enfoncé, les touches {\sf a}, {\sf z}, {\sf e}, {\sf r}, {\sf t}, {\sf y}, {\sf u}, {\sf i}, {\sf o} et {\sf p} ré-initialisent la position de la corde dans différentes configurations préréglées. Les touches {\sf w}, {\sf x}, {\sf c}, {\sf v}, {\sf b} et {\sf n} enregistrent la position de la corde dans l'état actuel, les touches {\sf q}, {\sf s}, {\sf d}, {\sf f}, {\sf g} et {\sf h} réinitialisent la position de la corde dans les états enregistés.
-%
 \subsection{Détails des contrôles}
 %
 %\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
 %
 \subsubsection{Équation simulée}
 %
-Il s'agit d'une spécificité de SiCF. Lorsque le mode asymétrique est activé, les touches {\sf Z} et {\sf S} ne change la masse de la corde que pour la moitié droite. 
+Il s'agit d'une spécificité de SiCF. Lorsque le mode asymétrique est activé, les touches {\sf z} et {\sf s} ne change la masse de la corde que pour la moitié droite. 
 %
 \begin{itemize}[leftmargin=2cm, label=\ding{32}, itemsep=0pt]
 \item 1: {\bf gravitation} forceRappel = sinus de la position du pendule
@@ -107,10 +98,10 @@ Il s'agit d'une spécificité de SiCF. Lorsque le mode asymétrique est activé,
 \subsubsection{Paramètres des pendules}
 %
 \begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
-\item {\bf Couplage} : {\sf A}, {\sf Q} : Augmente, diminue le couplage entre les pendules.
-\item {\bf Masse} : {\sf Z}, {\sf S} :  Augmente, diminue la masse des pendules.
-\item {\bf Dissipation} : {\sf E}, {\sf D} :  Augmente, diminue les frottements visqueux.
-\item {\bf Gravitation} : {\sf T}, {\sf G} :  Augmente, diminue l'accélération de la gravitation.
+\item {\bf Couplage} : {\sf a}, {\sf q} : Augmente, diminue le couplage entre les pendules.
+\item {\bf Masse} : {\sf z}, {\sf s} :  Augmente, diminue la masse des pendules.
+\item {\bf Dissipation} : {\sf e}, {\sf d} :  Augmente, diminue les frottements visqueux.
+\item {\bf Gravitation} : {\sf t}, {\sf g} :  Augmente, diminue l'accélération de la gravitation.
 %\item {\bf } : \sf{} : 
 \end{itemize}
 %
@@ -120,31 +111,31 @@ Il s'agit d'une spécificité de SiCF. Lorsque le mode asymétrique est activé,
 La touche {\sf V} supprime les frottements sauf pour les derniers pour lesquels les frottements s'accroissent. Ceci permet d'obtenir une extrémité "absorbante", permettant la simulation d'une corde infinie.
 %
 \begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
-\item {\bf Supprimer} : {\sf E} : Supprime les frottements visqueux.
-\item {\bf Former} : {\sf F} : Active les frottements visqueux sur toute la chaîne.
-\item {\bf Absorber} : {\sf V} : Active les frottements visqueux sur la fin de la chaîne, crée une extrémité absorbante.
+\item {\bf Supprimer} : {\sf e} : Supprime les frottements visqueux.
+\item {\bf Former} : {\sf f} : Active les frottements visqueux sur toute la chaîne.
+\item {\bf Absorber} : {\sf v} : Active les frottements visqueux sur la fin de la chaîne, crée une extrémité absorbante.
 \end{itemize}
 %
 %
 \subsubsection{Conditions aux limites}
 %
 \begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
-\item {\bf Périodique} : {\sf W} : Le dernier pendule est couplé au premier.
-\item {\bf Libres} : {\sf X} : Les deux extrémités sont libres.
-\item {\bf Fixes} : {\sf C} : Les deux extrémités sont fixes.
-\item {\bf libre-fixe} : {\sf B} : Le premier pendule est libre et le dernier pendule est fixe.
-\item {\bf fixe-libre} : {\sf N} : Le premier pendule est fixe et le dernier pendule est libre.
+\item {\bf Périodique} : {\sf w} : Le dernier pendule est couplé au premier.
+\item {\bf Libres} : {\sf x} : Les deux extrémités sont libres.
+\item {\bf Fixes} : {\sf c} : Les deux extrémités sont fixes.
+\item {\bf libre-fixe} : {\sf b} : Le premier pendule est libre et le dernier pendule est fixe.
+\item {\bf fixe-libre} : {\sf n} : Le premier pendule est fixe et le dernier pendule est libre.
 \end{itemize}
 %
 %
 \subsubsection{Moteur premier pendule}
 %
 \begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
-\item {\bf Impulsion} : {\sf I} : Crée une impulsion.
-\item {\bf Sinus} : {\sf O} : Active, désactive le moteur sinusoïdale.
-\item {\bf Sinus} : {\sf L} : Active le moteur carré.
-\item {\bf Amplitude} : {\sf U, J} :  Augmente, diminue l'amplitude du moteur.
-\item {\bf Fréquence} : {\sf P, M} :  Augmente, diminue la fréquence du moteur.
+\item {\bf Impulsion} : {\sf i} : Crée une impulsion.
+\item {\bf Sinus} : {\sf o} : Active, désactive le moteur sinusoïdale.
+\item {\bf Sinus} : {\sf l} : Active le moteur carré.
+\item {\bf Amplitude} : {\sf u, j} :  Augmente, diminue l'amplitude du moteur.
+\item {\bf Fréquence} : {\sf p, m} :  Augmente, diminue la fréquence du moteur.
 \end{itemize}
 %
 %
@@ -176,6 +167,48 @@ La touche {\sf V} supprime les frottements sauf pour les derniers pour lesquels 
 %\item {\bf } : \sf{F7} : 
 %\item {\bf } : \sf{F8} : 
 \end{itemize}
+%
+\subsection{Graphisme SiCP}
+Cliquer et déplacer le pointeur de la souris permet de déplacer le point de vue de l'observateur. La touche {\sf F8} permet de supprimer/ajouter le support dans SiCP.
+%
+\subsection{Sauvegarde et ré-initialisation dans SiCF}
+%
+Cette fonctionnalité nécessite la présence du répertoire {\texttt donnee/enregistrement} dans le répertoire de l'exécutable.
+La touche majuscule permet d'accéder aux fonctions d'enregistrement et de ré-initialisation des positions des pendules.
+
+Lorsque la touche majuscule est enfoncé, les touches {\sf A}, {\sf Z}, {\sf E}, {\sf R}, {\sf T}, {\sf Y}, {\sf U}, {\sf I}, {\sf O} et {\sf P}, ainsi que les touches {\sf J}, {\sf K}, {\sf L} et {\sf M} ré-initialisent la position de la corde dans différentes configurations préréglées.
+
+Les touches {\sf W}, {\sf X}, {\sf C}, {\sf V}, {\sf B} et {\sf N} enregistrent la position de la corde dans l'état actuel, les touches {\sf Q}, {\sf S}, {\sf D}, {\sf F}, {\sf G} et {\sf H} réinitialisent la position de la corde dans ces états enregistés.
+%
+\subsubsection{Fonction élémentaire}
+%
+\begin{center}
+\begin{tabular}{cc cc}%\multicolumn{4}{|c|}{}\\
+Touche & fonction \\
+A & nulle &\\
+Z & impulsion &\\
+E & triangle&\\
+R & triangle&\\
+T & carré &\\
+Y & carré &\\
+\end{tabular}
+\end{center}
+%
+\subsubsection{Quanton}
+%
+\begin{center}
+\begin{tabular}{cc cc}%\multicolumn{4}{|c|}{}\\
+Touche & fonction \\
+U, J & impulsion &\\
+I, K & impulsion &\\
+O, L & quanton &\\
+P, M & quanton &\\
+\end{tabular}
+\end{center}
+
+\subsubsection{Fichiers de ré-initialisation}
+Les fichiers de ré-initialisation se trouvent dans le répertoire {\texttt donnee/enregistrement}. Ils peuvent être édités. Le nom de ces fichiers doit être respecté afin de pouvoir être ouvert par le programme (ces noms sont utilisés par {\texttt donnees/fichier.c}).
+%
 %\end{itemize}
 %
 %\item {\bf } : \sf{} : 
