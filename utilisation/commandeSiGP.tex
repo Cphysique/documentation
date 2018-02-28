@@ -4,7 +4,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Lorsque le programme est démarré en ligne de commande, il est possible de passer un certain nombre d'option. Elle sont communiqué au programme à l'aide du nom de l'option suivie d'un nombre. Par exemple pour démarrer SiGP avec deux thermostat et sans cloison :
+Lorsque le programme est démarré en ligne de commande, il est possible de passer un certain nombre d'option. Elles sont communiquées au programme à l'aide du nom de l'option suivie d'un nombre. Par exemple pour démarrer SiGP avec deux thermostats et sans cloison :
 %
 \begin{center}
 \texttt{./SiGP thermostat 2 cloison 0}
@@ -38,9 +38,9 @@ Le clavier permet de modifier les paramètres physiques. La fenêtre graphique d
 %\sffamily
 %\rmfamily
 \sf A &\sf Z &\sf E &\sf R &\sf T &\sf Y &\sf U &\sf I &\sf O &\sf P \\
-Trou & Tmax &  &  &  &  &  & 1 T° & isolé & Tempér. \\
+Trou & Tmax & Diametre &  &  &  &  & 1 T° & isolé & Tempér. \\
 \sf Q &\sf S &\sf D &\sf F &\sf G &\sf H &\sf J &\sf K &\sf L &\sf M \\
-moinsT & Tinf &  &  &  &  &  & 2 T° & carré & moinsT \\
+moinsT & Tinf & moinsD &  &  &  &  & 2 T° & carré & moinsT \\
 \sf W &\sf X &\sf C &\sf V &\sf B &\sf N &  &  &  & \\
 Enceinte & Cloison & Trou & \multicolumn{3}{c}{Démon de Maxwell} &  &  &  & \\
 \end{tabular}
@@ -85,6 +85,16 @@ option & clavier & Commande \\
 \end{tabular}
 \end{center}
 %
+\subsubsection{Diamètre des particules}
+%
+\begin{center}
+\begin{tabular}{ccl}
+option & clavier & Commande \\
+& {\sf e},  {\sf d} & augmente, diminue\\
+\end{tabular}
+\end{center}
+%
+La variation de la surface efficace des chocs entres particules met en évidence la variation de libre parcours moyen.
 %\end{itemize}
 %
 \subsubsection{Contrôle de la simulation}
