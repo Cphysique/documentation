@@ -4,7 +4,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Lorsque le programme est démarré en ligne de commande, il est possible de passer un certain nombre d'option. Elle sont communiqué au programme à l'aide du nom de l'option suivie d'un nombre. Par exemple pour démarrer SiCF avec un fond sombre et une discrétisation du temps égale à 0,00033 seconde :
+Lorsque le programme est démarré en ligne de commande, il est possible de passer un certain nombre d'options. Ces options sont communiquées au programme à l'aide du nom de l'option suivie d'un nombre. Par exemple pour démarrer SiCF avec un fond sombre et une discrétisation du temps égale à 0,00033 seconde :
 \begin{center}
 \texttt{./SiCF fond 17 dt 0.00033}
 \end{center}
@@ -13,6 +13,8 @@ Pour démarrer SiCP avec un fond sombre, un nombre de pendules égale à 50 et t
 \texttt{./SiCP fond 17 soliton 3 nombre 50}
 \end{center}
 %
+Pour démarrer SiCP en exploitant plusieurs options :
+\texttt{./SiCP fond 45 support 0 pause 7 duree 998 dt 0.0027 nombre 777 soliton 18}
 %
 \subsection{Résumé des options}
 \begin{center}
@@ -40,6 +42,11 @@ option & valeur & clavier & commande \\
 \subsection{Résumé du clavier SiCF et SiCP}
 %
 Le clavier permet de modifier les paramètres physiques. La fenêtre graphique doit être active, le terminal affiche les informations.
+%
+%
+% V1
+%Le clavier permet de modifier les paramètres physiques. La fenêtre graphique doit être active, le terminal affiche les informations.
+\footnotesize
 \begin{center}
 \begin{tabular}{cccccccccc}
 %\sffamily
@@ -54,6 +61,53 @@ périodique & libres & fixe & ExtAbsD & libFix & fixLib &  &  &  & \\
 \end{center}
 \vspace{.3cm}
 %
+\normalsize
+\begin{itemize}[leftmargin=2cm, label=\ding{32}, itemsep=0pt]%\end{itemize}
+\item Paramètres physiques
+
+\begin{tabular}{ccccc}
+%\sffamily
+%\rmfamily
+\sf A &\sf Z &\sf E &\sf R &\sf T  \\
+Couplage & Masse & Dissip. & supprimD & Gravit.  \\
+\sf Q &\sf S &\sf D &\sf F &\sf G  \\
+moinsC & moinsM & plusD & formeD & moinsG  \\
+ & & & \sf V   & \\
+ & & & ExtAbsD &  \\
+\end{tabular}
+%
+\end{itemize}
+\begin{itemize}[leftmargin=2cm, label=\ding{32}, itemsep=0pt]%\end{itemize}
+\item Conditions aux limites
+
+\hspace{3cm}
+\begin{tabular}{cccccccccc}
+%\sffamily
+%\rmfamily
+ & & & &\sf Y \\
+ & & & & Phi \\
+ & & & &\sf H \\
+ & & & & moins$\Phi$  & & &  & \\
+\sf W &\sf X &\sf C &\sf V &\sf B &\sf N  \\
+périodique & libres & fixe &  & libFix & fixLib  \\
+\end{tabular}
+%
+\end{itemize}
+\begin{itemize}[leftmargin=2cm, label=\ding{32}, itemsep=0pt]%\end{itemize}
+\item Moteur premier pendule
+
+\hspace{9cm}
+\begin{tabular}{ccccc}
+%\sffamily
+%\rmfamily
+\sf U &\sf I &\sf O &\sf P \\
+ Ampl. & impuls. & sinus & Fréquence \\
+\sf J &\sf K &\sf L &\sf M \\
+ moinsA &  & carré & moinsF \\
+\end{tabular}
+%
+\end{itemize}
+%\vspace{.3cm}
 Les touches de fonctions donnent un certain nombre de contrôles et d'information:
 %
 \begin{center}
@@ -88,7 +142,7 @@ Support (SiCP) & -Sim & -Sim & +Sim & +Sim & mode\\
 %
 Il s'agit d'une spécificité de SiCF. Lorsque le mode asymétrique est activé, les touches {\sf z} et {\sf s} ne change la masse de la corde que pour la moitié droite. 
 %
-\begin{itemize}[leftmargin=2cm, label=\ding{32}, itemsep=0pt]
+\begin{itemize}[leftmargin=2cm, label=\ding{32}, itemsep=0pt]%\end{itemize}
 \item 1: {\bf gravitation} forceRappel = sinus de la position du pendule
 \item 2: {\bf linearisation} forceRappel = proportionnelle à la position du pendule
 \item 3: {\bf corde vibrante} forceRappel = 0
