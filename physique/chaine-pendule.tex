@@ -64,9 +64,9 @@ Une chaîne de pendule est constituée d'une série de pendules pesants. Chaque 
 }
 \end{tikzpicture}
 
-\label{chaineDePendule}
 \subsection{L'équation de la chaine de pendule}
-La chaîne de pendule est constituée d'une série de pendules pesants. Chaque pendule étant couplé avec ses deux plus proches voisins à l'aide d'un fil de torsion.\cite{sine-gordon}\cite{chaine-pendule}
+\label{barreteau}
+La chaîne de pendule est constituée d'une série de pendules pesants. Chaque pendule étant couplé avec ses deux plus proches voisins à l'aide d'un fil de torsion.\cite{chaine-pendule}
 \[
 \frac{\mathrm d^2\theta _n}{\mathrm d t^2} - c^2 \frac{\theta _{n+1} + \theta _{n-1} - 2 \theta _n}{\mathrm{a} ^2} + \omega _0 ^2 \sin \theta _n = 0
 \]
@@ -94,7 +94,7 @@ avec
  & $\theta _n$ & angle & radian &  \\
  & m & masse & M &  \\
  & g & pesanteur & LT$^{-2}$ &  \\
- & k & torsion & MT$^{-2}$ &  \\
+ & k & raideur & MT$^{-2}$ &  \\
  & l & longueur & L &  \\
  & $\beta$ & frottement & ML$^{2}$T$^{-1}$ &  \\
 \end{tabular}
@@ -102,7 +102,7 @@ avec
 %
 \subsection{Expressions des forces et des énergies associées}
 
-La force de rappel, s'exerçant sur la masse m, dû au fil de torsion entre les pendules est :
+La force de rappel, s'exerçant sur la masse m, dû au fil de torsion ( $C=kl^2$ ) entre les pendules est :
 \[
 f_{torsion} = -  k l \Delta \theta _n = -  k l\ (2\theta _n-\theta _{n-1}-\theta _{n+1})
 \]
