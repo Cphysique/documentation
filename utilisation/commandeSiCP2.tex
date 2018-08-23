@@ -1,68 +1,41 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\section{SiCF et SiCP}
+\section{SiCP2}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Lorsque le programme est démarré en ligne de commande, il est possible de passer un certain nombre d'options. Ces options sont communiquées au programme à l'aide du nom de l'option suivie d'un nombre. Par exemple pour démarrer SiCF avec un fond sombre et une discrétisation du temps égale à 0,00033 seconde :
+SiCP2 possède une interface graphique permettant de modifier les paramètres à l'aide de la souris. Lorsque le programme est démarré en ligne de commande, il est toujours possible de passer un certain nombre d'options. La syntaxe est identique à SiCP :
 \begin{center}
-\texttt{./SiCF fond 17 dt 0.00033}
+\texttt{./SiCP2 support 0 dt 0.0027 nombre 177 soliton 7}
 \end{center}
-Pour démarrer SiCP avec un fond sombre, un nombre de pendules égale à 50 et trois solitons :
-\begin{center}
-\texttt{./SiCP fond 17 soliton 3 nombre 50}
-\end{center}
-%
-Pour démarrer SiCP en exploitant plusieurs options :
-\begin{center}
-\texttt{./SiCP fond 45 support 0 pause 7 duree 998 dt 0.0027 nombre 777 soliton 18}
-\end{center}
-%
-\subsection{Résumé des options}
-\begin{center}
-\begin{tabular}{cccc}
-option & valeur & clavier & commande \\
-%\hline
-{\texttt fond} & (fond>0 \& fond<255) &  & Couleur du fond \\
-{\texttt soliton} & (soliton > -99 \& soliton < 99) & {\sf y},{\sf h} & déphasage entre les extrémitées *\\
-{\texttt dt} & (dt > 0.0 \& dt < DT\_MAX) &  & discrétisation du temps \\
-{\texttt frequence} & () & {\sf p}, {\sf m} & fréquence du générateur \\
-{\texttt dissipation} & () & {\sf e}, {\sf d} & dissipation \\
-{\texttt equation} & (equation > 0 \& equation < 5) & {\sf F1}, {\sf F2}, {\sf F3}, {\sf F4} & choix de l'équation \\
-{\texttt pause} & (pause > 5 || pause < 555) &  & temps de pause en ms \\
-{\texttt duree} & () & {\sf F11}, {\sf F12} & Nombre d'évolution du système entre les affichages \\
-{\texttt mode} & () & {\sf Entrée} & Mode -1 : Wait, 1 : Poll \\
-{\texttt nombre} & (nombre > 0 \& nombre < 1099) &  & Nombre de pendules **\\
-{\texttt aide} & () &  & Affiche l'aide \\
-{\texttt help} & () &  & Affiche l'aide \\
-\end{tabular}
-\end{center}
-* Initialise le déphasage entre le dernier pendule et le premier pendule dans le cas des conditions aux limites périodique.
-** Spécifique à SiCP.
+L'utilisation du clavier est identique à SiCP.
 %
 %
-\subsection{Résumé du clavier SiCF et SiCP}
 %
-Le clavier permet de modifier les paramètres physiques. La fenêtre graphique doit être active, le terminal affiche les informations.
+\subsection{Panneau de droite}
 %
+Ce panneau possède cinq boutons rotatifs et 17 boutons "radio". La rotation s'effectue en plaçant le pointeur de la souris au centre dun de ces boutons et en actionnant la molette. La sélection d'un bouton radio s'effectue en cliquant sur celui-ci. 
+%
+%
+%
+\subsection{Panneau du bas}
+%
+%
+%
+
+%
+%
+%
+\subsection{Panneau central}
+%
+%
+%
+%
+\subsection{Clavier}
 %
 % V1
 %Le clavier permet de modifier les paramètres physiques. La fenêtre graphique doit être active, le terminal affiche les informations.
 \footnotesize
-\begin{center}
-\begin{tabular}{cccccccccc}
-%\sffamily
-%\rmfamily
-\sf A &\sf Z &\sf E &\sf R &\sf T &\sf Y &\sf U &\sf I &\sf O &\sf P \\
-Couplage & Masse & Dissip. & supprimD & Gravit. & Phi & Ampl. & impuls. & sinus & Fréquence \\
-\sf Q &\sf S &\sf D &\sf F &\sf G &\sf H &\sf J &\sf K &\sf L &\sf M \\
-moinsC & moinsM & plusD & formeD & moinsG & moins$\Phi$ & moinsA &  & carré & moinsF \\
-\sf W &\sf X &\sf C &\sf V &\sf B &\sf N &  &  &  & \\
-périodique & libres & fixe & ExtAbsD & libFix & fixLib &  &  &  & \\
-\end{tabular}
-\end{center}
-\vspace{.3cm}
-%
 \normalsize
 \begin{itemize}[leftmargin=2cm, label=\ding{32}, itemsep=0pt]%\end{itemize}
 \item Paramètres physiques
