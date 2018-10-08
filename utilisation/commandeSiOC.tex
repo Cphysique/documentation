@@ -23,22 +23,28 @@ Pour démarrer SiCP en exploitant plusieurs options :
 \begin{tabular}{cccc}
 option & valeur & clavier & commande \\
 %\hline
-{\texttt fond} & (fond>0 \& fond<255) &  & Couleur du fond \\
+{\texttt fond} & (fond>0 \& fond<255) &  & Couleur du fond ***\\
 {\texttt soliton} & (soliton > -99 \& soliton < 99) & {\sf y},{\sf h} & déphasage entre les extrémitées *\\
 {\texttt dt} & (dt > 0.0 \& dt < DT\_MAX) &  & discrétisation du temps \\
 {\texttt frequence} & () & {\sf p}, {\sf m} & fréquence du générateur \\
 {\texttt dissipation} & () & {\sf e}, {\sf d} & dissipation \\
 {\texttt equation} & (equation > 0 \& equation < 5) & {\sf F1}, {\sf F2}, {\sf F3}, {\sf F4} & choix de l'équation \\
 {\texttt pause} & (pause > 5 || pause < 555) &  & temps de pause en ms \\
-{\texttt duree} & () & {\sf F11}, {\sf F12} & Nombre d'évolution du système entre les affichages \\
+{\texttt duree} & () & {\sf F9}, {\sf F10}, {\sf F11}, {\sf F12} & rythme de la simulation \\
 {\texttt mode} & () & {\sf Entrée} & Mode -1 : Wait, 1 : Poll \\
 {\texttt nombre} & (nombre > 0 \& nombre < 1099) &  & Nombre de pendules **\\
 {\texttt aide} & () &  & Affiche l'aide \\
 {\texttt help} & () &  & Affiche l'aide \\
 \end{tabular}
 \end{center}
+
+{\it
 * Initialise le déphasage entre le dernier pendule et le premier pendule dans le cas des conditions aux limites périodique.
-** Spécifique à SiCP.
+
+** Spécifique à SiCP, nombre < 399 dans SiCP2.
+
+*** Désactivé dans les versions 2.
+}
 %
 %
 \subsection{Résumé du clavier SiCF et SiCP}
@@ -128,7 +134,7 @@ Pendules & Harmoniques & Corde & asymétrique & Énergie & Système \\
 \end{tabular}
 \end{center}
 %
-F8 permet de modifier  le graphisme de SiCP. {\sf F9} et {\sf F12} modifient rapidement la vitesse de la simulation, {\sf F10} et {\sf F11} la modifie modéremment. La touche {\sf Entrée} change le mode avec ou sans attente, en mode avec attente, l'appuie sur une touche permet l'évolution du système.
+{\sf F8} permet de modifier  le graphisme de SiCP. {\sf F9} et {\sf F12} modifient rapidement le rythme de la simulation, {\sf F10} et {\sf F11} la modifie modéremment. La touche {\sf Entrée} change le mode avec ou sans attente, en mode avec attente, l'appuie sur une touche permet l'évolution du système.
 \begin{center}
 \begin{tabular}{cccccc}
 \sf F8 &\sf F9 &\sf F10 &\sf F11 &\sf F12 & \sf Entrée \\

@@ -1,6 +1,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%
-\section{Discrétisation}
+\section{Discrétisation des équations différentielles}
 %%%%%%%%%%%%%%%%%%%%%
 %
 La discrétisation de l'équation du mouvement se fait à l'aide de l'algorithme de Verlet. Cet algorithme consiste à symétriser la dérivée par rapport au temps puis d'obtenir une expression de $x(t+\dt)$ en fonction de $x(t)$ et $x(t-\dt)$. Cette expression permet de simuler de proche en proche le comportement du système physique. La solution discrète se rapproche de la solution analytique si la valeur de dt est convenablement choisie. En dehors d'un certain encadrement de dt, la solution discrète s'éloigne de la solution analytique.
@@ -28,7 +28,7 @@ Une expression disymétrique de la vitesse peut être utilisée pour l'évaluati
 %
 \subsection{Discrétisation de la relation fondamentale de la dynamique}
 %
-L'équation de la chaîne de pendules couplés (\ref{chaineDePendule}) donne ici :
+L'équation de la chaîne de pendules couplés (\ref{barreteau}) donne ici :
 %
 \[
 \frac{x(t+\dt) - 2x(t) + x(t-\dt)}{\dt^2} = - \frac{g}{l} \sin{x(t)}  -  \frac{k}{m} \Delta x(t)  -  \frac{\beta}{ml}\ \frac{x(t) - x(t-\dt)}{\dt}

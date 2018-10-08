@@ -1,0 +1,20 @@
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Discrétisation des chocs de particules}
+%%%%%%%%%%%%%%%%%%%%%
+%
+La discrétisation des chocs de particules implémenté dans SiGP, est réalisé à partir d'un modèle simplifié. Les chocs à plus de deux particules sont négligés. Deux particules ne peuvent pas subir deux collisions successives entre elles. Cette dernière simplification conduit à introduire un phénomène d'intrication.
+%
+\subsection{Modèle numérique}
+\label{joseph}
+%\label{larbier}
+%
+Deux particules s'entrechoquent à condition qu'elles se trouvent à une distance inférieur à une certaine valeur. Il n'y a pas d'autre paramètre d'impact.
+
+Au cours du choc, l'énergie cinétique est conservée ainsi que la quantité de mouvement, l'angle de déviation est aléatoire. La fonction aléatoire utilisée dans SiGP utilise l'algorithme de C. Bays et S.D.Durham \cite{aleatoire1}
+%\cite{aleatoire2}
+
+Après un choc, les deux particules deviennent transparentes l'une pour l'autre jusqu'à ce que l'une d'entre elle entre en collision avec une troisième particule.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
