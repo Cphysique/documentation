@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{SiTS2}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+Lorsque le programme est démarré en ligne de commande, il est possible de passer un certain nombre d'option. Elles sont communiquées au programme à l'aide du nom de l'option suivie d'un nombre. Par exemple pour démarrer SiTS2 avec deux thermostats et sans cloison :
+%
+\begin{center}
+\texttt{./SiTS2 thermostat 2 cloison 0}
+\end{center}
+%
+\subsection{Options et commande du clavier}
+%
+%\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+\subsubsection{Résumé des options}
+\begin{center}
+\begin{tabular}{cccc}
+option & valeur & clavier & commande \\
+\hline
+pause & 5 < d < 555 &  & pause entre les affichages en ms \\
+%duree & 1 < d < 99 & flèches & nombre d'évolution du système entre les affichages \\
+duree & 1 < d < 99 & flèches & vitesse de la simulation \\
+cloison & -3 < d < 3 & \texttt{w-n} & cloison si <> 0 \\
+thermostat & -2 < d < 2 & \texttt{o} , \texttt{l} & système isolé si = 0 \\
+vitesse & 0.03 < f < 33.3 &  & Vitesse initiale \\
+temperature & 0.0000003 < f < 90 000 & \texttt{p}, \texttt{m} & Température thermostat \\
+gauche & 0.0000003 < f < 90 000 & \texttt{u}, \texttt{j} & Thermostat gauche \\
+droite & 0.0000003 < f < 90 000 & \texttt{i}, \texttt{k} & Thermostat droite \\
+\end{tabular}
+\end{center}
+%
+\subsection{Résumé du clavier}
+%
+Le clavier permet de modifier les paramètres physiques. La fenêtre graphique doit être active, le terminal affiche les informations.
+\begin{center}
+\begin{tabular}{cccccccccc}
+%\sffamily
+%\rmfamily
+\sf A &\sf Z &\sf E &\sf R &\sf T &\sf Y &\sf U &\sf I &\sf O &\sf P \\
+Trou & Tmax & Diametre &  &  &  &  & 1 T° & isolé & Tempér. \\
+\sf Q &\sf S &\sf D &\sf F &\sf G &\sf H &\sf J &\sf K &\sf L &\sf M \\
+moinsT & Tinf & moinsD &  &  &  &  & 2 T° & carré & moinsT \\
+\sf W &\sf X &\sf C &\sf V &\sf B &\sf N &  &  &  & \\
+Enceinte & Cloison & Trou & \multicolumn{3}{c}{Démon de Maxwell} &  &  &  & \\
+\end{tabular}
+\end{center}
+\subsubsection{Cloison centrale}
+%
+\begin{center}
+\begin{tabular}{ccl}
+option & clavier & commande \\
+0 & {\sf w} & Pas de cloison\\
+1 & {\sf x} & Cloison fermée\\
+2 & {\sf c} & Cloison percée\\
+-1 & {\sf b} & Cloison percée et démon de maxwell \\
+-2 & {\sf n} & Cloison et démon de maxwell \\
+\end{tabular}
+\end{center}
+%
+\subsubsection{Thermostats}
+%
+\begin{center}
+\begin{tabular}{ccl}
+option & clavier & Commande \\
+0 & {\sf o} & Système isolé\\
+1 & {\sf i} & Température gauche-droite identiques\\
+ & {\sf p} & Augmente T\\
+ & {\sf m} & Diminue T\\
+2 & {\sf k} & Température gauche-droite différentes\\
+ & {\sf u} & Augmente T à droite\\
+ & {\sf j} & Diminue T à droite\\
+ & {\sf y} & Augmente T à gauche\\
+ & {\sf h} & Diminue T à gauche\\
+\end{tabular}
+\end{center}
+%
+\subsubsection{Taille du trou}
+%
+\begin{center}
+\begin{tabular}{ccl}
+option & clavier & Commande \\
+& {\sf a},  {\sf q} & augmente, diminue\\
+& {\sf z},  {\sf s} & Taille max, min\\
+\end{tabular}
+\end{center}
+%
+\subsubsection{Diamètre des particules}
+%
+\begin{center}
+\begin{tabular}{ccl}
+option & clavier & Commande \\
+& {\sf e},  {\sf d} & augmente, diminue\\
+\end{tabular}
+\end{center}
+%
+La variation de la surface efficace des chocs entres particules met en évidence la variation de libre parcours moyen.
+%\end{itemize}
+%
+\subsubsection{Contrôle de la simulation}
+%
+{\sf F9} et {\sf F12} modifient rapidement la vitesse de la simulation, {\sf F10} et {\sf F11} la modifient modéremment. La touche {\sf Entrée} change le mode avec ou sans attente, en mode avec attente, l'appuie sur une touche permet l'évolution du système.
+%
+\begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
+\item {\bf Mode} : {\sf Entrée} : Change le mode de la simulation : évolution automatique ou pas à pas.
+\item {\bf Accélèrer} : {\sf 11} et {\sf F12} : Accélère la simulation.
+\item {\bf Ralentir} : {\sf F9} et {\sf F10} : Ralentit la simulation.
+\end{itemize}
+%
+%
+\subsubsection{Information}
+\begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
+\item {\bf Énergie} : {\sf F5} : Information énergétique de la chaîne.
+\item {\bf Système} : {\sf F6} : Affiche les paramètres physiques du système.
+%\item {\bf } : \sf{F7} : 
+%\item {\bf } : \sf{F8} : 
+\end{itemize}
+%\end{itemize}
+%

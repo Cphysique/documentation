@@ -1,0 +1,138 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{SiCF2}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+SiCF2 possède une interface graphique permettant de modifier les paramètres à l'aide de la souris. Lorsque le programme est démarré en ligne de commande, il est toujours possible de passer un certain nombre d'options. La syntaxe est identique à SiCF :
+\begin{center}
+\texttt{./SiCF2 dt 0.0027 nombre 16}
+\end{center}
+L'utilisation du clavier est identique à SiCF. 
+%
+%
+%
+\subsection{Panneau de droite}
+%
+Ce panneau possède sept boutons rotatifs et 15 boutons "radio". La rotation s'effectue en plaçant le pointeur de la souris l'un des boutons rotatif et en actionnant la molette. La sélection d'un bouton radio s'effectue en cliquant sur celui-ci. 
+%
+%
+\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+	\item {\bf Couplage} : change la tension de la corde
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item Périodique : couple les extrémités de la corde
+		\item Libre : libère les extrémités de la corde
+		\item Fixe : fixe les extrémités de la corde
+		\item Mixte : fixe l'extrémité gauche et libère l'extrémité droite
+	\end{itemize}
+	\item {\bf Masse} : change la masse des pendules
+	\item {\bf Dissipation} : change le frotement visqueux sur les pendules
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item Uniforme : installe un frottement visqueux uniforme
+		\item Nulle : anulle le frottement visqueux
+		\item Extrémité : installe un frottement visqueux croissant sur l'extrémité droite (1/6 de la corde)
+	\end{itemize}
+	\item {\bf Amplitude} : change l'amplitude du moteur périodique
+	\item {\bf Fréquence} : change la fréquence du moteur périodique
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item Arrêt : arrête le moteur périodique
+		\item Sinus : démarre le moteur sinusoïdale
+		\item Carré : démarre le moteur carré
+		\item Impulsion : démarre le moteur sinusoïdale et l'arrête après une période
+	\end{itemize}
+	\item Simulation : change la rapidité de la simulation
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item Pause : arrête / démarre la simulation
+		\item min : minimum de la rapidité de la simulation
+		\item max : maximum de la rapidité de la simulation
+	\end{itemize}
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item Initialise : réinitialise la position de la corde
+	\end{itemize}
+\end{itemize}
+%
+%
+\subsection{Panneau central}
+%
+Le panneau centrale montre la corde vibrante. 
+%
+\subsection{Panneau du bas}
+%
+La sélection d'un bouton radio s'effectue en cliquant sur celui-ci. 
+%
+%
+\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+	\item Rotation : démarre la rotation du point de vue
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item rotation vers la droite
+		\item arrête la rotation
+		\item rotation vers la gauche
+	\end{itemize}
+	\item Simulation : contrôle la rapidité de la simulation
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item ralentie la simulation
+		\item arrête / démarre la simulation
+		\item temps réel
+		\item accélère la simulation
+	\end{itemize}
+	\item Initialisation : Réinitialise le système
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item réinitialisation de la position
+		\item réinitialisation des paramètres
+	\end{itemize}
+\end{itemize}
+%
+%
+\subsection{Sauvegarde et ré-initialisation}
+%
+Cette fonctionnalité nécessite la présence du répertoire {\texttt donnee/enregistrement} dans le répertoire de l'exécutable.
+La touche majuscule (Maj) permet d'accéder aux fonctions de ré-initialisation des positions des pendules.
+La touche controle (Ctrl) permet d'accéder aux fonctions d'enregistrement des positions des pendules.
+
+Lorsque la touche majuscule est enfoncé, les touches alphabétiques ré-initialisent la position de la corde :
+
+Les touche [A..P] donnent des conditions initiales calculées par le programme.
+
+Les touche [Q..M] et [W..N] donnent des conditions initiales enregistrées dans les fichiers de sauvegarde.
+
+Lorsque la touche controle est enfoncé, les touches alphabétiques enregistrent la position de la corde : 
+
+Les touche [Q..M] et [W..N] enregistrent la position actuelle de la corde dans les fichiers de sauvegarde.
+
+
+%
+\subsubsection{Fonctions élémentaires}
+%
+\begin{center}
+\begin{tabular}{cc cc}%\multicolumn{4}{|c|}{}\\
+Touche & fonction \\
+A & nulle &\\
+Z & impulsion &\\
+E & triangle&\\
+R & triangle&\\
+T & carré &\\
+Y & carré &\\
+\end{tabular}
+\end{center}
+%
+\begin{comment}
+\subsubsection{Quanton}
+%
+\begin{center}
+\begin{tabular}{cc cc}%\multicolumn{4}{|c|}{}\\
+Touche & fonction \\
+U & impulsion &\\
+I & impulsion &\\
+O & quanton &\\
+P & quanton &\\
+\end{tabular}
+\end{center}
+\end{comment}
+
+\subsubsection{Fichiers de ré-initialisation}
+Les fichiers de ré-initialisation se trouvent dans le répertoire {\texttt donnee/enregistrement}. Ils peuvent être édités. Le nom de ces fichiers doit être respecté afin de pouvoir être ouvert par le programme (ces noms sont utilisés par {\texttt donnees/fichier.c}).
+%
+%\end{itemize}
+%
+%\item {\bf } : \sf{} : 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
